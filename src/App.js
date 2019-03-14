@@ -1,11 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+// import logo from "./logo.svg";
+import { BrowserRouter, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./Home";
+import Dashboard from "./views/dashboard";
+import LoginOrSignup from "./views/loginOrSignup";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <BrowserRouter>
+          <div>
+            <Route exact path="/" component={LoginOrSignup} />
+            <Route path="/dashboard" component={Dashboard} />
+          </div>
+        </BrowserRouter>
+        {/* <Dashboard />
+        <LoginOrSignup />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -19,7 +31,10 @@ class App extends Component {
           >
             Learn React
           </a>
-        </header>
+          <Home />
+          <Dashboard />
+          <LoginOrSignup />
+        </header> */}
       </div>
     );
   }
